@@ -1,0 +1,13 @@
+<ng-template
+  ngFor
+  [ngForOf]="dataList"
+  [ngForTrackBy]="dataTrackBy"
+  let-data
+  let-i="index"
+>
+  <app-for-track-ex-a [data]="data"></app-for-track-ex-a>
+  <button (click)="deleteData(i)">Delete data item</button>
+</ng-template>
+
+<hr/>
+<button (click)="changeData()">Click to refresh data list</button>
