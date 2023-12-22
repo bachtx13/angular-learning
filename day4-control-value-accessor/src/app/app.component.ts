@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {FormService} from "./services/form.service";
+import {DataModel} from "./interfaces/data-model";
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,12 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'control-value-accessor';
-  formGroup: FormGroup = new FormGroup({
-    name: new FormControl('Bach')
-  })
 
-  handleNameInput() {
-    console.log(this.formGroup)
+  constructor(private formService: FormService) {
+  }
+  handleClick() {
+    this.formService.setFormData(<DataModel>{
+      name: "bach"
+    })
   }
 }

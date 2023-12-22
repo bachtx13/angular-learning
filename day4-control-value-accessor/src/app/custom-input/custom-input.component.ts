@@ -1,4 +1,4 @@
-import {Component, forwardRef} from '@angular/core';
+import {Component, forwardRef, OnChanges, SimpleChanges} from '@angular/core';
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {noop} from "rxjs";
 
@@ -16,7 +16,7 @@ import {noop} from "rxjs";
     },
   ],
 })
-export class CustomInputComponent implements ControlValueAccessor{
+export class CustomInputComponent implements OnChanges, ControlValueAccessor{
   onChange: (value: string) => void = noop;
   onTouch: () => void = noop;
 
@@ -29,6 +29,7 @@ export class CustomInputComponent implements ControlValueAccessor{
   }
 
   registerOnTouched(fn: () => void): void {
+    console.log(fn)
     this.onTouch = fn;
   }
 
@@ -39,5 +40,9 @@ export class CustomInputComponent implements ControlValueAccessor{
   writeValue(value: string): void {
     // console.log(value)
     this.value = value;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
   }
 }

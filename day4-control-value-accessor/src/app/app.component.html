@@ -1,6 +1,4 @@
 
 <router-outlet></router-outlet>
-<form [formGroup]="formGroup">
-
-  <app-custom-input (input)="handleNameInput()" formControlName='name'></app-custom-input>
-</form>
+<app-form></app-form>
+<button (click)="handleClick()">change</button>
