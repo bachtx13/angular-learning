@@ -37,7 +37,7 @@ export class CustomInputComponent implements ControlValueAccessor{
   }
 
   writeValue(value: string): void {
-    console.log(value)
+    // console.log(value)
     this.value = value;
   }
 }
