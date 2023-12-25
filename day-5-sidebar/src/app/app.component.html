@@ -1,0 +1,11 @@
+<mat-toolbar color="warn">
+  <p>Yeeuuu cauuu</p>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav position="start" mode="side" [opened]="true" #sidenav>
+    abc
+  </mat-sidenav>
+
+</mat-sidenav-container>
+<button (click)="sidenav.toggle()">Click</button>
